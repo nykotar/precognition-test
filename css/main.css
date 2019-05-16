@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'OpenSans';
+    src: url("../resources/fonts/OpenSans-Regular.ttf");
+}
+
+body {
+    font-family: 'OpenSans', helvetica, arial, sans-serif;
+    font-weight: 200;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    margin: 0 auto;
+    width: 90%;
+}
