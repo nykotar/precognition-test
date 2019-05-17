@@ -80,7 +80,7 @@ button:hover {
 /* Instructions */
 
 .instructions-container {
-    margin-top: 60px;
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -90,7 +90,7 @@ button:hover {
 }
 
 .instructions-container ol {
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 .instructions-container li {
