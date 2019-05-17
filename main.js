@@ -1,6 +1,7 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, ipcMain} = require('electron')
 
 let mainWindow
+let imagePool = []
 
 function createWindow () {
   // Create the browser window.
@@ -15,14 +16,26 @@ function createWindow () {
   mainWindow.loadFile('index.html')
 
   // Open the DevTools.
-   mainWindow.webContents.openDevTools()
+  //mainWindow.webContents.openDevTools()
 
   mainWindow.on('closed', function () {
     mainWindow = null
   })
 }
 
-app.on('ready', createWindow)
+app.on('ready', function () {
+  const fs = require('fs');
+
+  //Load image pool
+  fs.readdir("./resources/pool", function(err, items) {
+    for (var i=0; i<items.length; i++) {
+        if(items[i].endsWith(".jpg"))
+          imagePool.push(items[i])
+    }
+    createWindow()
+    console.log("Retrieved " + imagePool.length + " images.")
+  });
+})
 
 app.on('window-all-closed', function () {
   // On macOS it is common for applications and their menu bar
@@ -34,4 +47,8 @@ app.on('activate', function () {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) createWindow()
+})
+
+ipcMain.on("get-image-pool", function (event, args) {
+  event.returnValue = imagePool
 })

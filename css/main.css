@@ -23,11 +23,13 @@ body {
 .step {
     position: absolute;
     opacity: 0;
+    visibility: hidden;
 }
 
 .visible {
     position: static;
     opacity: 1;
+    visibility: visible;
     transition: opacity 0.6s linear;
 }
 
@@ -96,4 +98,56 @@ button:hover {
 .instructions-container li {
     font-family: 'Lato', sans-serif;
     line-height: 1.6;
+}
+
+/* Tasking */
+
+.tasking-container {
+    margin-top: 12%;
+}
+
+#task {
+    font-size: 30px;
+    font-style: italic;
+    text-align: center;
+    width: 90%;
+}
+
+#trn {
+    text-align: center;
+}
+
+/* https://codepen.io/Oddgson/pen/VPrYbv */
+.divider
+{
+	position: relative;
+	margin: 70px 0;
+	height: 1px;
+}
+
+.div-transparent:before
+{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 5%;
+	right: 5%;
+	width: 90%;
+	height: 1px;
+	background-image: linear-gradient(to right, transparent, #d9d9d9, transparent);
+}
+
+.div-arrow-down:after
+{
+	content: "";
+	position: absolute;
+	z-index: 1;
+	top: -7px;
+	left: calc(50% - 7px);
+	width: 14px;
+	height: 14px;
+	transform: rotate(45deg);
+	background-color: white;
+	border-bottom: 1px solid #d9d9d9;
+	border-right: 1px solid #d9d9d9;
 }
