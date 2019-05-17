@@ -21,11 +21,14 @@ body {
 }
 
 .step {
-    display: none;
+    position: absolute;
+    opacity: 0;
 }
 
 .visible {
-    display: block;
+    position: static;
+    opacity: 1;
+    transition: opacity 0.6s linear;
 }
 
 /**/
@@ -79,10 +82,11 @@ button:hover {
 .instructions-container {
     margin-top: 60px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
+    align-items: center;
 }
 
 .instructions-container ol {
