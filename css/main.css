@@ -3,8 +3,14 @@
     src: url("../resources/fonts/OpenSans-Regular.ttf");
 }
 
+@font-face {
+    font-family: 'Lato';
+    src: url("../resources/fonts/Lato-Regular.ttf");
+}
+
 body {
     font-family: 'OpenSans', helvetica, arial, sans-serif;
+    font-size: 16px;
     font-weight: 200;
     -webkit-font-smoothing: antialiased;
 }
@@ -12,4 +18,78 @@ body {
 .container {
     margin: 0 auto;
     width: 90%;
+}
+
+.step {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+/**/
+
+.title {
+    font-size: 36px;
+    color: #333;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    border-top: 1px solid #d0d0d0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    margin: 0 15px 15px 15px;
+    padding-top: 15px;
+}
+
+.hint {
+    font-size: 14px;
+    color: #939395;
+}
+
+button {
+    color: #333;
+    background-color: #e6e6e6;
+    border: none;
+    border-radius: 2px;
+    height: 40px;
+    width: 120px;
+    padding: 0 15px;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+button:hover {
+    background-color: #d9d9d9;
+}
+
+/* Instructions */
+
+.instructions-container {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.instructions-container ol {
+    margin-top: 30px;
+}
+
+.instructions-container li {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
 }
