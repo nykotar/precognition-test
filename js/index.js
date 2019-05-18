@@ -30,7 +30,13 @@ document.querySelector("#instructions-next").addEventListener('click', () => {
     imagePool = ipcRenderer.sendSync("get-image-pool")
     
     for(var i = 0; i < 5; i++) {
-        selectedImages.push(Math.floor(Math.random() * imagePool.length))
+        var selected = Math.floor(Math.random() * imagePool.length)
+
+        //make sure we dont select the same image twice
+        while(selectedImages.includes(selected)) {
+            selected = Math.floor(Math.random() * imagePool.length)
+        }
+        selectedImages.push(selected)
     }
 
     
@@ -40,4 +46,42 @@ document.querySelector("#instructions-next").addEventListener('click', () => {
     document.querySelector("#trn").innerHTML = genTrn()
 
     nextStep()
+})
+
+document.querySelector("#tasking-done").addEventListener('click', () => {
+
+    //fill the gallery with the selected images
+    var gallery = document.querySelector(".gallery")
+    for(var i = 0; i < 5; i++) {
+        var img = document.createElement("img")
+        img.src = "./resources/pool/" + imagePool[selectedImages[i]]
+        img.dataset.imageIndex = imagePool[selectedImages[i]]
+        img.addEventListener('click', (e) => {
+            ipcRenderer.send("open-img", e.target.dataset.imageIndex)
+        })
+        img.classList.add("gallery-img")
+        gallery.appendChild(img)
+    }
+
+    nextStep()
+})
+
+document.querySelector("#select").addEventListener('click', () => {
+
+    var galleryImages = document.querySelectorAll(".gallery-img")
+    var targetIndex = Math.floor(Math.random() * galleryImages.length)
+    galleryImages[targetIndex].classList.add("selected")
+
+    var selectBtn = document.querySelector("#select")
+    selectBtn.disabled = true
+
+    var finishBtn = document.querySelector("#finish")
+    finishBtn.disabled = false
+
+    ipcRenderer.send("open-img", imagePool[selectedImages[targetIndex]])
+
+})
+
+document.querySelector("#finish").addEventListener('click', () => {
+    ipcRenderer.send("close")
 })
