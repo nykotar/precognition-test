@@ -3,6 +3,7 @@ const {app, BrowserWindow, ipcMain} = require('electron')
 let mainWindow
 let imgWindow
 
+const poolPath = "./resources/pool/"
 let imagePool = []
 
 function createWindow () {
@@ -29,7 +30,7 @@ app.on('ready', function () {
   const fs = require('fs');
 
   //Load image pool
-  fs.readdir("./resources/pool", function(err, items) {
+  fs.readdir(poolPath, function(err, items) {
     for (var i=0; i<items.length; i++) {
         if(items[i].endsWith(".jpg"))
           imagePool.push(items[i])
@@ -58,7 +59,7 @@ ipcMain.on("get-image-pool", function (event, args) {
 
 ipcMain.on("open-img", function (event, args) {
   imgWindow = new BrowserWindow()
-  imgWindow.loadFile("./resources/pool/" + args)
+  imgWindow.loadFile(poolPath + args)
 })
 
 ipcMain.on("close", function () {

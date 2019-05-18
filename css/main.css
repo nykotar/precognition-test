@@ -163,7 +163,7 @@ button:disabled {
 
 /* Images */
 .gallery {
-    margin-top: 35px;
+    margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 25vw);
@@ -178,7 +178,12 @@ button:disabled {
     border: 4px solid white;
 }
 
+.gallery-img:hover {
+    cursor: pointer;
+    border-color: #d9d9d9;
+}
+
 .selected {
-    border: 4px solid green;
+    border: 4px solid #373737;
     border-radius: 2px;
 }
