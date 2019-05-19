@@ -78,5 +78,5 @@ ipcMain.on("get-image-pool", function (event, args) {
 
 ipcMain.on("open-img", function (event, args) {
   imgWindow = new BrowserWindow()
-  imgWindow.loadFile(poolPath + args)
+  imgWindow.loadFile(path.join(poolPath, args))
 })
