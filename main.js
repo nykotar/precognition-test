@@ -16,6 +16,7 @@ function createWindow () {
       //devTools: false
     },
     resizable: false,
+    title: "Precognition Test"
   })
 
   mainWindow.loadFile('index.html')
@@ -62,8 +63,4 @@ ipcMain.on("get-image-pool", function (event, args) {
 ipcMain.on("open-img", function (event, args) {
   imgWindow = new BrowserWindow()
   imgWindow.loadFile(poolPath + args)
-})
-
-ipcMain.on("close", function () {
-  app.quit()
 })

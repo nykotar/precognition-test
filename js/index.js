@@ -66,22 +66,15 @@ document.querySelector("#tasking-done").addEventListener('click', () => {
     nextStep()
 })
 
-document.querySelector("#select").addEventListener('click', () => {
+document.querySelector("#finish").addEventListener('click', () => {
 
     var galleryImages = document.querySelectorAll(".gallery-img")
     var targetIndex = Math.floor(Math.random() * galleryImages.length)
     galleryImages[targetIndex].classList.add("selected")
 
-    var selectBtn = document.querySelector("#select")
-    selectBtn.disabled = true
-
     var finishBtn = document.querySelector("#finish")
-    finishBtn.disabled = false
+    finishBtn.disabled = true
 
     ipcRenderer.send("open-img", imagePool[selectedImages[targetIndex]])
 
-})
-
-document.querySelector("#finish").addEventListener('click', () => {
-    ipcRenderer.send("close")
 })
