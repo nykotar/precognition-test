@@ -12,8 +12,10 @@ function createWindow () {
     width: 1000,
     height: 700,
     webPreferences: {
-      nodeIntegration: true
-    }
+      nodeIntegration: true,
+      //devTools: false
+    },
+    resizable: false,
   })
 
   mainWindow.loadFile('index.html')
