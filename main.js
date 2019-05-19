@@ -13,7 +13,7 @@ function createWindow () {
     height: 700,
     webPreferences: {
       nodeIntegration: true,
-      //devTools: false
+      devTools: false
     },
     resizable: false,
     title: "Precognition Test"
