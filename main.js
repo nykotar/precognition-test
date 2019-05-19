@@ -1,9 +1,10 @@
 const {app, BrowserWindow, ipcMain, Menu} = require('electron')
+const path = require('path')
 
 let mainWindow
 let imgWindow
 
-const poolPath = "./resources/pool/"
+const poolPath = path.resolve(__dirname, "./resources/pool/")
 let imagePool = []
 
 function createWindow () {
