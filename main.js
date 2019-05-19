@@ -1,4 +1,4 @@
-const {app, BrowserWindow, ipcMain} = require('electron')
+const {app, BrowserWindow, ipcMain, Menu} = require('electron')
 
 let mainWindow
 let imgWindow
@@ -18,6 +18,21 @@ function createWindow () {
     resizable: false,
     title: "Precognition Test"
   })
+
+  const template = [
+    {
+      role: "help",
+      submenu: [
+        {
+          label:"About",
+          click() {require('electron').shell.openExternal('https://github.com/nykotar/precognition-test')}
+        }
+      ]
+    }
+  ]
+
+  const menu = Menu.buildFromTemplate(template)
+  Menu.setApplicationMenu(menu)
 
   mainWindow.loadFile('index.html')
 
