@@ -112,53 +112,17 @@ button:disabled {
 /* Tasking */
 
 .tasking-container {
-    margin-top: 12%;
-}
-
-#task {
-    font-size: 30px;
-    font-style: italic;
-    text-align: center;
+    position: absolute;
     width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center; /*centers items on the line (the x-axis by default)*/
+    align-items: center; /*centers items on the cross-axis (y by default)*/
 }
 
 #trn {
+    font-size: 60px;
     text-align: center;
-}
-
-/* https://codepen.io/Oddgson/pen/VPrYbv */
-.divider
-{
-	position: relative;
-	margin: 70px 0;
-	height: 1px;
-}
-
-.div-transparent:before
-{
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 5%;
-	right: 5%;
-	width: 90%;
-	height: 1px;
-	background-image: linear-gradient(to right, transparent, #d9d9d9, transparent);
-}
-
-.div-arrow-down:after
-{
-	content: "";
-	position: absolute;
-	z-index: 1;
-	top: -7px;
-	left: calc(50% - 7px);
-	width: 14px;
-	height: 14px;
-	transform: rotate(45deg);
-	background-color: white;
-	border-bottom: 1px solid #d9d9d9;
-	border-right: 1px solid #d9d9d9;
 }
 
 /* Images */

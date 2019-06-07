@@ -14,7 +14,7 @@ function createWindow () {
     height: 700,
     webPreferences: {
       nodeIntegration: true,
-      devTools: false
+      devTools: true
     },
     resizable: false,
     title: "Precognition Test"
@@ -33,7 +33,7 @@ function createWindow () {
   ]
 
   const menu = Menu.buildFromTemplate(template)
-  Menu.setApplicationMenu(menu)
+  //Menu.setApplicationMenu(menu)
 
   mainWindow.loadFile('index.html')
 

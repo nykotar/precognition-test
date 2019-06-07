@@ -1,10 +1,13 @@
 const {ipcRenderer} = require('electron')
+const {shuffle} = require('./utils.js')
 
 let stepIndex = 0
 let steps = document.querySelectorAll(".step")
 
 let imagePool;
 let selectedImages = [];
+
+let targetImage;
 
 function nextStep() {
     steps[stepIndex].classList.remove("visible")
@@ -26,9 +29,10 @@ function genTrn() {
 
 document.querySelector("#instructions-next").addEventListener('click', () => {
 
+    
     //Select images
     imagePool = ipcRenderer.sendSync("get-image-pool")
-    
+    /*
     for(var i = 0; i < 5; i++) {
         var selected = Math.floor(Math.random() * imagePool.length)
 
@@ -41,6 +45,7 @@ document.querySelector("#instructions-next").addEventListener('click', () => {
 
     
     console.log("Selected five: " + selectedImages)
+    */
 
     //update target reference number
     document.querySelector("#trn").innerHTML = genTrn()
@@ -49,6 +54,24 @@ document.querySelector("#instructions-next").addEventListener('click', () => {
 })
 
 document.querySelector("#tasking-done").addEventListener('click', () => {
+
+    //select the target
+    targetImage = Math.floor(Math.random() * imagePool.length)
+    selectedImages.push(targetImage)
+
+    //find other 4 images
+    for(var i = 0; i < 4; i++) {
+        var selected = Math.floor(Math.random() * imagePool.length)
+
+        //make sure we dont select the same image twice
+        while(selectedImages.includes(selected)) {
+            selected = Math.floor(Math.random() * imagePool.length)
+        }
+        selectedImages.push(selected)
+    }
+
+    //shuffle
+    selectedImages = shuffle(selectedImages)
 
     //fill the gallery with the selected images
     var gallery = document.querySelector(".gallery")
@@ -69,12 +92,17 @@ document.querySelector("#tasking-done").addEventListener('click', () => {
 document.querySelector("#finish").addEventListener('click', () => {
 
     var galleryImages = document.querySelectorAll(".gallery-img")
-    var targetIndex = Math.floor(Math.random() * galleryImages.length)
-    galleryImages[targetIndex].classList.add("selected")
+    for(var i = 0; i < 5; i++) {
+        if(galleryImages[i].dataset.imageIndex == imagePool[targetImage]) {
+            galleryImages[i].classList.add("selected")
+            break;
+        }
+    }
+    //var targetIndex = Math.floor(Math.random() * galleryImages.length)
 
     var finishBtn = document.querySelector("#finish")
     finishBtn.disabled = true
 
-    ipcRenderer.send("open-img", imagePool[selectedImages[targetIndex]])
+    ipcRenderer.send("open-img", imagePool[targetImage])
 
 })
