@@ -45,6 +45,26 @@ Author: Václav Sidorjak
 Source: https://commons.wikimedia.org/wiki/File:Kalec,_okres_Plze%C5%88-sever,_aerial_photography5.jpg
 License: [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/legalcode)
   
+File: 1024px-Calcata02.jpg
+Author: Mac9
+Source: https://commons.wikimedia.org/wiki/File:Calcata02.JPG
+License: [CC BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/legalcode)
+  
+File: 1024px-Bergenhus_Fortress_Bergen_Norway_2009_1.jpg
+Author: Sveter
+Source: https://commons.wikimedia.org/wiki/File:Bergenhus_Fortress_Bergen_Norway_2009_1.JPG
+License: [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/legalcode)
+  
+File: 1024px-Xinjiang_DSC_9362_(3814098348).jpg
+Author: [Iwtt93](https://www.flickr.com/people/37195641@N03)
+Source: https://commons.wikimedia.org/wiki/File:Xinjiang_DSC_9362_(3814098348).jpg
+License: [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/legalcode)
+  
+File: Tunnel_de_la_piste_cyclable_du_lac_d'Annecy_à_Duingt_-_panoramio
+Author: [Eric Bajart](https://www.panoramio.com/user/2732057?with_photo_id=26526825)
+Source: https://commons.wikimedia.org/wiki/File:Tunnel_de_la_piste_cyclable_du_lac_d%27Annecy_%C3%A0_Duingt_-_panoramio.jpg
+License: [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/legalcode)
+  
 File: 
 Author: []()
 Source: 
